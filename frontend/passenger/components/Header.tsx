@@ -1,14 +1,16 @@
-'use client';
-
-const Header = () => {
+export default function Header() {
   return (
-    <header className="bg-gray-50 py-8">
-      <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-gray-800">Smart Bus Portal</h1>
-        <p className="text-gray-600 mt-2">Your trusted transportation partner</p>
+    <header className="bg-white shadow-md p-4">
+      <div className="flex justify-between items-center">
+        <div className="text-2xl font-bold text-blue-600">
+          🚌 Smart Bus Portal
+        </div>
+        <nav className="flex space-x-4">
+          <a href="/" className="text-gray-700 hover:text-blue-600">Home</a>
+          <a href="/login" className="text-gray-700 hover:text-blue-600">Login</a>
+          <a href="/signup" className="text-gray-700 hover:text-blue-600">Signup</a>
+        </nav>
       </div>
     </header>
   );
-};
-
-export default Header;
+}
