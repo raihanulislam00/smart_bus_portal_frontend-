@@ -20,4 +20,79 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Prevent layout shifts and blinking */
+.no-layout-shift {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Smooth transitions for auth state changes */
+.auth-transition {
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Prevent content jumping during authentication checks */
+.navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  min-height: 70px; /* Consistent height */
+}
+
+/* Spinner animation for loading states */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Prevent flash of unstyled content (FOUC) */
+html {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Ensure smooth mounting of components */
+.auth-provider-mount {
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+}
+
+/* Prevent layout shift during image loading */
+.image-container {
+  background-color: #f5f5f5;
+}
+
+/* Smooth loading for the entire app */
+#__next {
+  min-height: 100vh;
+}
+
+/* Preload styles to prevent blinking */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove any potential flashing */
+body, html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* Prevent any blinking during hydration */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 

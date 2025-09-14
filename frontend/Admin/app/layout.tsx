@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
 import Image from "next/image";
 import "./globals.css";
+import { AuthProvider } from "../context/AuthContext";
+import { NotificationProvider } from "../context/NotificationContext";
+import NotificationPopup from "../components/NotificationPopup";
 
 const geistSans = Roboto({
   variable: "--font-geist-sans",
@@ -28,17 +31,14 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning={true}
       >
-        <main className="min-h-screen flex flex-col">
-          <header className="p-4">
-            {
-
-            }
-          </header>
-          <div className="flex-1">
+        <AuthProvider>
+          <NotificationProvider>
             {children}
-          </div>
-        </main>
+            <NotificationPopup />
+          </NotificationProvider>
+        </AuthProvider>
       </body>
     </html>
   );
